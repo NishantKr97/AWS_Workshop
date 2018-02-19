@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+</head>
+
+<body ng-app='app'>
+  <div ng-controller='PostsCtrl' class='container'>
+    <h1>Post News!</h1>
+    
+    
+    <form role='form'>
+      
+      <div class="form-group">
+        <input placeholder="Heading" ng-model="heading" class="form-control" />
+        <textarea placeholder="Start writing here" class="form-control" ng-model="postBody" rows="3"></textarea>
+      </div>
+
+      <div class="form-group"> <!-- Submit button !-->
+        <button type="submit" class="btn btn-primary pull" ng-click="addPost()"">Add Post</button>
+      </div>  
+    </form>
+
+
+    <div ng-repeat="post in posts" class="col-md-10 blogShort">
+      <div class="well">
+        <div class="media">
+          <a class="pull-left" href="#">
+            <img class="media-object" src="http://lorempixel.com/100/100/">
+          </a>
+          <div class="media-body">
+            <h4 class="media-heading">{{ post.heading }}</h4>
+            <p> {{ post.body }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.js'></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-route.js'></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
